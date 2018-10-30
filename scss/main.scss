@@ -1,0 +1,35 @@
+@import "overrides";
+
+body {
+	color: theme-color("primary");
+}
+
+@include media-breakpoint-down(sm) {
+	.content {
+		height: 100vh;
+		margin-top: 7em;
+	
+		.launchPageTitle {
+			font-size: 1.25em;
+		}
+
+		.launchPageTitle,  .launchPageLoginButton {
+			margin-top: 0.5em;
+		}
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.content {
+		height: 100vh;
+		margin-top: 10em;
+	
+		.launchPageTitle,  .launchPageLoginButton {
+			margin-top: 0.7em;
+		}
+	}
+}
+
+@include media-breakpoint-up(lg) {}
+
+@include media-breakpoint-up(xl) {}

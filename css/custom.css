@@ -1,0 +1,24 @@
+body {
+	background-color: #013859;
+	color: #EB3E4A;
+}
+
+#title {
+	margin-top: 1em;
+	font-size: 5em;
+}
+
+div.title {
+	border-bottom: 1px solid #EB6460;
+	margin-right: 5em;
+	margin-left: 5em;
+	padding-bottom: 2em;
+}
+
+div.button-groups {
+	margin-top: 3em;
+}
+
+div.button-groups > button {
+	display: inline-block;
+}
