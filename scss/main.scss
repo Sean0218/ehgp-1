@@ -22,6 +22,84 @@ body {
     font-family: $front-font; 
 }
 
+// Sidebar
+#sidebar {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    z-index: 999;
+    background: theme-color("primary");
+    color: #fff;
+    transition: all 0.3s;
+    overflow-y: scroll;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+#dismiss {
+    text-align: center;
+    background: lighten(theme-color("primary"), 10%);
+    position: absolute;
+    cursor: pointer;
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+#dismiss:hover {
+    background: darken(theme-color("primary"), 2.5%);
+    color: #fff;
+}
+
+#sidebar .sidebar-header {
+    background: lighten(theme-color("primary"), 5%);
+}
+
+#sidebar ul p {
+    color: #fff;
+}
+
+#sidebar ul li a {
+    font-size: 1.1em;
+    display: block;
+    color: #fff;
+}
+
+#sidebar ul li a:hover {
+    color: #fff;
+    background: theme-color("secondary");
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    background: #6d7fcc; // Not sure where this is
+}
+
+// Modal
+.modal .modal-dialog .modal-footer button:hover, .modal .modal-dialog .modal-footer button:focus {
+    background-color: theme-color("secondary");
+}
+
 // Screen size specfic styles
 // Phones
 @include media-breakpoint-down(sm) {} 
@@ -75,61 +153,19 @@ body {
     // Sidebar
     #sidebar {
         width: 350px;
-        position: fixed;
-        top: 0;
         left: -350px;
-        height: 100vh;
-        z-index: 9999;
-        background: theme-color("primary");
-        color: #fff;
-        transition: all 0.3s;
-        overflow-y: scroll;
-        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
-    }
-    
-    #sidebar.active {
-        left: 0;
     }
     
     #dismiss {
         width: 35px;
         height: 35px;
         line-height: 35px;
-        text-align: center;
-        background: lighten(theme-color("primary"), 10%);
-        position: absolute;
         top: 20px;
         right: 10px;
-        cursor: pointer;
-        -webkit-transition: all 0.2s;
-        -o-transition: all 0.2s;
-        transition: all 0.2s;
-    }
-    
-    #dismiss:hover {
-        background: darken(theme-color("primary"), 2.5%);
-        color: #fff;
-    }
-    
-    .overlay {
-        display: none;
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.6);
-        z-index: 998;
-        opacity: 0;
-        transition: all 0.5s ease-in-out;
-    }
-    
-    .overlay.active {
-        display: block;
-        opacity: 1;
     }
     
     #sidebar .sidebar-header {
         padding: 20px;
-        background: lighten(theme-color("primary"), 5%);
     }
     
     #sidebar ul.components {
@@ -137,51 +173,21 @@ body {
     }
     
     #sidebar ul p {
-        color: #fff;
         padding: 10px;
     }
     
     #sidebar ul li a {
         padding: 10px;
-        font-size: 1.1em;
-        display: block;
-        color: #fff;
-    }
-    
-    #sidebar ul li a:hover {
-        color: #fff;
-        background: theme-color("secondary");
-        text-decoration: none;
-        font-weight: bold;
-    }
-    
-    #sidebar ul li.active>a,
-    a[aria-expanded="true"] {
-        color: #fff;
-        background: #6d7fcc;
-    }
-    
-    a[data-toggle="collapse"] {
-        position: relative;
     }
     
     .dropdown-toggle::after {
-        display: block;
-        position: absolute;
         top: 50%;
         right: 20px;
         transform: translateY(-50%);
     }
     
     ul ul a {
-        font-size: 0.9em !important;
         padding-left: 30px !important;
-        background: #6d7fcc;
-    }
-
-    // Modal
-    .modal .modal-dialog .modal-footer button:hover {
-        background-color: theme-color("secondary");
     }
 }
 
