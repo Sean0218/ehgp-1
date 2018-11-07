@@ -1,35 +1,189 @@
+// Imports
 @import "overrides";
 
+// Google fonts
+@import url('https://fonts.googleapis.com/css?family=Cabin');
+
+// Variables
+$front-font: 'Cabin', sans-serif;
+$front-color: theme-color("secondary");
+
+// Global styles
 body {
 	color: theme-color("primary");
+	background-color: #eaf1fb;
 }
 
-@include media-breakpoint-down(sm) {
-	.content {
-		height: 100vh;
-		margin-top: 7em;
-	
-		.launchPageTitle {
-			font-size: 1.25em;
-		}
-
-		.launchPageTitle,  .launchPageLoginButton {
-			margin-top: 0.5em;
-		}
-	}
+.wrapper {
+	display: block;
 }
 
-@include media-breakpoint-up(md) {
-	.content {
-		height: 100vh;
-		margin-top: 10em;
-	
-		.launchPageTitle,  .launchPageLoginButton {
-			margin-top: 0.7em;
-		}
-	}
+.content {
+    font-family: $front-font; 
 }
 
-@include media-breakpoint-up(lg) {}
+// Screen size specfic styles
+// Phones
+@include media-breakpoint-down(sm) {} 
 
+// Tablets
+@include media-breakpoint-up(md) {}
+
+// Laptops and desktops
+@include media-breakpoint-up(lg) {
+    // Main content
+    .content {
+        margin-top: 7%;
+        
+        .front-text-wrapper, .front-subtext-wrapper, .front-login-button-wrapper {
+            margin-top: 1.5em;
+        }
+    
+        img {
+            height: 22.5%;
+            width: 22.5%;
+        }
+    
+        .front-text-wrapper {
+            h1 {
+                font-size: 450%;	
+            }	
+        }
+    
+        .front-subtext-wrapper {
+            h3 {
+                font-size: 175%;	
+            }
+        }
+    
+        .front-login-button-wrapper {
+            margin-top: 2em;
+    
+            button {
+                padding-top: .75em;
+                padding-bottom: .75em;
+                padding-left: 3.5em;
+                padding-right: 3.5em;
+            }
+
+            button:hover {
+                background-color: theme-color("secondary");
+            }
+        }
+    }
+
+    // Sidebar
+    #sidebar {
+        width: 350px;
+        position: fixed;
+        top: 0;
+        left: -350px;
+        height: 100vh;
+        z-index: 9999;
+        background: theme-color("primary");
+        color: #fff;
+        transition: all 0.3s;
+        overflow-y: scroll;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+    }
+    
+    #sidebar.active {
+        left: 0;
+    }
+    
+    #dismiss {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        background: lighten(theme-color("primary"), 10%);
+        position: absolute;
+        top: 20px;
+        right: 10px;
+        cursor: pointer;
+        -webkit-transition: all 0.2s;
+        -o-transition: all 0.2s;
+        transition: all 0.2s;
+    }
+    
+    #dismiss:hover {
+        background: darken(theme-color("primary"), 2.5%);
+        color: #fff;
+    }
+    
+    .overlay {
+        display: none;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 998;
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+    }
+    
+    .overlay.active {
+        display: block;
+        opacity: 1;
+    }
+    
+    #sidebar .sidebar-header {
+        padding: 20px;
+        background: lighten(theme-color("primary"), 5%);
+    }
+    
+    #sidebar ul.components {
+        padding: 20px 0;
+    }
+    
+    #sidebar ul p {
+        color: #fff;
+        padding: 10px;
+    }
+    
+    #sidebar ul li a {
+        padding: 10px;
+        font-size: 1.1em;
+        display: block;
+        color: #fff;
+    }
+    
+    #sidebar ul li a:hover {
+        color: #fff;
+        background: theme-color("secondary");
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    #sidebar ul li.active>a,
+    a[aria-expanded="true"] {
+        color: #fff;
+        background: #6d7fcc;
+    }
+    
+    a[data-toggle="collapse"] {
+        position: relative;
+    }
+    
+    .dropdown-toggle::after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+    
+    ul ul a {
+        font-size: 0.9em !important;
+        padding-left: 30px !important;
+        background: #6d7fcc;
+    }
+
+    // Modal
+    .modal .modal-dialog .modal-footer button:hover {
+        background-color: theme-color("secondary");
+    }
+}
+
+// Big screens
 @include media-breakpoint-up(xl) {}
