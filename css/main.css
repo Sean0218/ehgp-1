@@ -9060,11 +9060,10 @@ body {
 }
 
 .wrapper {
+  z-index: 997;
   display: block;
-}
-
-.content {
-  font-family: "Cabin", sans-serif;
+  width: 100vw;
+  height: 100vh;
 }
 
 #sidebar {
@@ -9083,6 +9082,25 @@ body {
 
 #sidebar.active {
   left: 0;
+}
+
+.overlay {
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.overlay.active {
+  position: absolute;
+  display: block;
+  opacity: 1;
 }
 
 #dismiss {
@@ -9144,16 +9162,158 @@ ul ul a {
   background-color: #90110d;
 }
 
+.front-login-button-wrapper button:hover {
+  background-color: #90110d;
+}
+
+@media (max-width: 767.98px) {
+  .content img, .content .front-text-wrapper, .content .front-subtext-wrapper, .content .front-login-button-wrapper {
+    margin-top: 8em;
+  }
+  .content .front-text-wrapper, .content .front-subtext-wrapper, .content .front-login-button-wrapper {
+    margin-top: .5em;
+  }
+  .content img {
+    height: 45%;
+    width: 45%;
+  }
+  .content .front-text-wrapper h1 {
+    font-size: 250%;
+  }
+  .content .front-subtext-wrapper h3 {
+    font-size: 90%;
+  }
+  .content .front-login-button-wrapper {
+    margin-top: 2em;
+  }
+  .content .front-login-button-wrapper button {
+    padding-top: .25em;
+    padding-bottom: .25em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+  }
+  #sidebar {
+    width: 200px;
+    left: -200px;
+  }
+  #dismiss {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    top: 20px;
+    right: 10px;
+  }
+  #sidebar .sidebar-header {
+    padding: 20px;
+    margin-top: .25rem;
+  }
+  .sidebar-header h3 {
+    font-size: 1.25rem;
+  }
+  #sidebar ul.components {
+    padding: 20px 0;
+    font-size: .8em;
+  }
+  #sidebar ul p {
+    padding: 10px;
+  }
+  #sidebar ul li a {
+    padding: 10px;
+  }
+  .dropdown-toggle::after {
+    top: 50%;
+    right: 20px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  ul ul a {
+    padding-left: 30px !important;
+  }
+  .nav-access {
+    margin-top: .5em;
+    margin-left: .5em;
+  }
+}
+
+@media (min-width: 768px) {
+  .content img, .content .front-text-wrapper, .content .front-subtext-wrapper, .content .front-login-button-wrapper {
+    margin-top: 9em;
+  }
+  .content .front-text-wrapper, .content .front-subtext-wrapper, .content .front-login-button-wrapper {
+    margin-top: 1em;
+  }
+  .content img {
+    height: 30%;
+    width: 30%;
+  }
+  .content .front-text-wrapper h1 {
+    font-size: 400%;
+  }
+  .content .front-subtext-wrapper h3 {
+    font-size: 150%;
+  }
+  .content .front-login-button-wrapper {
+    margin-top: 2em;
+  }
+  .content .front-login-button-wrapper button {
+    padding-top: .55em;
+    padding-bottom: .55em;
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+  }
+  #sidebar {
+    width: 300px;
+    left: -300px;
+  }
+  #dismiss {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    top: 20px;
+    right: 10px;
+  }
+  #sidebar .sidebar-header {
+    padding: 20px;
+    margin-top: .25rem;
+  }
+  .sidebar-header h3 {
+    font-size: 1.55rem;
+  }
+  #sidebar ul.components {
+    padding: 20px 0;
+    font-size: 1em;
+  }
+  #sidebar ul p {
+    padding: 10px;
+  }
+  #sidebar ul li a {
+    padding: 10px;
+  }
+  .dropdown-toggle::after {
+    top: 50%;
+    right: 20px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  ul ul a {
+    padding-left: 30px !important;
+  }
+  .nav-access {
+    margin-top: .5em;
+    margin-left: .5em;
+  }
+}
+
 @media (min-width: 992px) {
-  .content {
-    margin-top: 7%;
+  .content img, .content .front-text-wrapper, .content .front-subtext-wrapper, .content .front-login-button-wrapper {
+    margin-top: 8em;
   }
   .content .front-text-wrapper, .content .front-subtext-wrapper, .content .front-login-button-wrapper {
     margin-top: 1.5em;
   }
   .content img {
-    height: 22.5%;
-    width: 22.5%;
+    height: 25%;
+    width: 25%;
   }
   .content .front-text-wrapper h1 {
     font-size: 450%;
